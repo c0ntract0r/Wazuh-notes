@@ -1,5 +1,5 @@
 <rule id="100001" level="5">
-  <decoded_as>windows_eventchannel</decoded_as>
-  <field name="win.eventdata.eventID">4724</field>
+  <field name="win.eventdata.eventID">^4724$</field>
   <description>An attempt was made to reset an account's password</description>
+  <options>no_full_log</options>
 </rule>
