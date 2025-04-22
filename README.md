@@ -1,7 +1,7 @@
 # Wazuh notes
 
 > [!NOTE]
-> The following Wazuh notes were taken for mostly focusing on PCI-DSS Compliance, but information mentioned here is applicable for other uses.
+> The following Wazuh notes were taken for mostly focusing on PCI-DSS Compliance, but information mentioned here is applicable for other uses. Also, this is not intended to replace Wazuh documentation in any way, rather, the reader should understand, that this is an extension of another fellow internet user, who, while facing common issues and finding their solutions, is providing these notes publicly in a hope, that it will help others.
 
 ---
 
