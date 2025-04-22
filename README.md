@@ -10,9 +10,11 @@
 
 ---
 
+The whole configuration itself, as a first starter, was pretty confusing for me, so I would like to clear out some things. On a basic level, wazuh has three major central components: **Wazuh Manager**, **Wazuh Dashboard** and **Wazuh indexer**. If we choose to deploy it as a single-node stack, it deploys one Wazuh manager, Indexer, and Dashboard node. Wazuh indexer is **based on Opensearch**, which is itself a fork of Open source Elasticseach 7.10, but in here, it is preconfigured in wazuh-specific way, Supports PCI-DSS Requirement 10.5.1 - Log retention, is managed with Wazuh Dashboard. That is why, when navigating Wazuh dashboards, you will see some parts of help are redirected to Opensearch documentation. This question was bugging me a lot, so I did my research. On the other hand, Wazuh Dashboard is **based on OpenSearch Dashboards**, enhanced with a Wazuh-specific plugin to support security monitoring features, And Opensearch Dashboards is a fork of Kibana, which built on Node.JS and React. You will have fun looking at Axios errors in your dashboard, popping up like a balloon in red, in the lower right corner :D
+
+
 ## User management and RBAC
 
-The whole configuration itself, as a first starter, was pretty confusing for me, so I would like to clear out some things.
 As noted in the Documentation, The operation of RBAC relies on the interaction among four key components: users, roles, rules and policies. 
 
 * **Users** - This is you, me, or whatever. They can be service users as well. Whatever sends a request, and gets a response, is a user.
