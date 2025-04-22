@@ -3,6 +3,8 @@
 > [!NOTE]
 > The following Wazuh notes were taken for mostly focusing on PCI-DSS Compliance, but information mentioned here is applicable for other uses.
 
+---
+
 > [!WARNING]
 > The following information was tested and applied to **single-node** Docker Wazuh deployment stack. Commands & file paths mentioned here may not work on other deployments. Do the research, and if you want, you can add your notes, information or experienced issue and its solution here. Please, inform me in that case.
 
