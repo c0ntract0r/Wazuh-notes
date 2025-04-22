@@ -1,5 +1,3 @@
-# Wazuh notes
-
 > [!NOTE]
 > The following Wazuh notes were taken for mostly focusing on PCI-DSS Compliance, but information mentioned here is applicable for other uses. Also, this is not intended to replace Wazuh documentation in any way, rather, the reader should understand, that this is an extension of another fellow internet user, who, while facing common issues and finding their solutions, is providing these notes publicly in a hope, that it will help others.
 
@@ -9,6 +7,8 @@
 > The following information was tested and applied to **single-node** Docker Wazuh deployment stack. Commands & file paths mentioned here may not work on other deployments. Do the research, and if you want, you can add your notes, information or experienced issue and its solution here. Please, inform me in that case.
 
 ---
+
+# Wazuh notes
 
 The whole configuration itself, as a first starter, was pretty confusing for me, so I would like to clear out some things. On a basic level, wazuh has three major central components: **Wazuh Manager**, **Wazuh Dashboard** and **Wazuh indexer**. If we choose to deploy it as a single-node stack, it deploys one Wazuh manager, Indexer, and Dashboard node. Wazuh indexer is **based on Opensearch**, which is itself a fork of Open source Elasticseach 7.10, but in here, it is preconfigured in wazuh-specific way, Supports PCI-DSS Requirement 10.5.1 - Log retention, is managed with Wazuh Dashboard. That is why, when navigating Wazuh dashboards, you will see some parts of help are redirected to Opensearch documentation. This question was bugging me a lot, so I did my research. On the other hand, Wazuh Dashboard is **based on OpenSearch Dashboards**, enhanced with a Wazuh-specific plugin to support security monitoring features, And Opensearch Dashboards is a fork of Kibana, which built on Node.JS and React. You will have fun looking at Axios errors in your dashboard, popping up like a balloon in red, in the lower right corner :D
 
