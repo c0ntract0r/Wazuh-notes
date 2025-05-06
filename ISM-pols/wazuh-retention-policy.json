@@ -1,0 +1,80 @@
+{
+  "policy": {
+      "policy_id": "wazuh-retention-policy",
+      "description": "Policy to retain wazuh logs for 12 months with 3 months immediately available. This policy is created per requirement for PCI-DSS: 10.5.1",
+      "last_updated_time": 1746522404902,
+      "schema_version": 21,
+      "error_notification": null,
+      "default_state": "hot",
+      "states": [
+          {
+              "name": "cold",
+              "actions": [
+                  {
+                      "retry": {
+                          "count": 3,
+                          "backoff": "exponential",
+                          "delay": "1m"
+                      },
+                      "read_only": {}
+                  }
+              ],
+              "transitions": [
+                  {
+                      "state_name": "delete",
+                      "conditions": {
+                          "min_index_age": "365d"
+                      }
+                  }
+              ]
+          },
+          {
+              "name": "hot",
+              "actions": [
+                  {
+                      "retry": {
+                          "count": 3,
+                          "backoff": "exponential",
+                          "delay": "1m"
+                      },
+                      "replica_count": {
+                          "number_of_replicas": 1
+                      }
+                  }
+              ],
+              "transitions": [
+                  {
+                      "state_name": "cold",
+                      "conditions": {
+                          "min_index_age": "90d"
+                      }
+                  }
+              ]
+          },
+          {
+              "name": "delete",
+              "actions": [
+                  {
+                      "retry": {
+                          "count": 3,
+                          "backoff": "exponential",
+                          "delay": "1m"
+                      },
+                      "delete": {}
+                  }
+              ],
+              "transitions": []
+          }
+      ],
+      "ism_template": [
+          {
+              "index_patterns": [
+                  "wazuh-alerts-*",
+                  "wazuh-archives-*"
+              ],
+              "priority": 100,
+              "last_updated_time": 1746522404902
+          }
+      ]
+  }
+}
